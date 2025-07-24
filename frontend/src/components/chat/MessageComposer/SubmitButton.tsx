@@ -38,6 +38,7 @@ export default function SubmitButton({
               onClick={stopTask}
               size="icon"
               className="rounded-full h-8 w-8"
+              style={{ borderRadius: '0.5rem' }}
             >
               <Stop className="!size-6" />
             </Button>
@@ -56,7 +57,8 @@ export default function SubmitButton({
               disabled={disabled}
               onClick={onSubmit}
               size="icon"
-              className="rounded-full h-8 w-8"
+              className="h-8 w-8"
+              style={{ borderRadius: '0.5rem' }}
             >
               <Send className="!size-6" />
             </Button>

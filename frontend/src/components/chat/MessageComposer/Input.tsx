@@ -102,13 +102,16 @@ const Input = forwardRef<InputMethods, Props>(
         if (contentEditableRef.current) {
           contentEditableRef.current.innerHTML = '';
         }
-      }else if(contentEditableRef.current){
+      } else if (contentEditableRef.current) {
         // if selectedCommand?.persistent is true , keep .command-span tag and clear content
-        const commandSpan = contentEditableRef.current.querySelector('.command-span');
+        const commandSpan =
+          contentEditableRef.current.querySelector('.command-span');
         if (commandSpan) {
           contentEditableRef.current.innerHTML = commandSpan.outerHTML;
           // Zero-width space
-          contentEditableRef.current.appendChild(document.createTextNode('\u200B'));
+          contentEditableRef.current.appendChild(
+            document.createTextNode('\u200B')
+          );
         }
       }
       setSelectedIndex(0);
@@ -251,10 +254,10 @@ const Input = forwardRef<InputMethods, Props>(
         const textData = event.clipboardData?.getData('text/plain');
         if (textData) {
           const escapedText = escapeHtml(textData);
-          
+
           // Remove trailing newlines to prevent extra line breaks
           const trimmedText = escapedText.replace(/\n+$/, '');
-          
+
           // Insert as plain text to avoid browser adding extra formatting
           document.execCommand('insertText', false, trimmedText);
 
